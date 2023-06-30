@@ -1,0 +1,38 @@
+.authentication {
+    
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 100px;
+
+
+}
+
+.authentication button {
+    margin: 10px 5px 5px 5px;
+    background-color: rgb(112, 112, 245);   
+    height: 50px;
+    width: 97%;
+    color: white;
+}
+
+
+.authentication h2 {
+    text-align: center;  
+    margin-top: 5%;
+}
+
+.authentication input {
+    display: block;
+    margin-left: 10px;
+    margin-right: center;
+    margin: 10px 5px 5px 5px;
+    height: 30px;
+    width: 95%;
+}
+
+ 
+.form-group label{
+    margin-left: 10px;
+}
