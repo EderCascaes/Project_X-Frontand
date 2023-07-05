@@ -8,6 +8,7 @@ import { map, catchError } from "rxjs/operators";
 @Injectable({
   providedIn: "root",
 })
+
 export class PersonService {
   baseUrl = "http://localhost:5211/api/vi/person";
 

@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable, catchError, map } from 'rxjs';
-import { Login } from 'src/app/components/authentication/authe-login/login.model';
+import { Login } from 'src/app/components/authentication/authe-login/authe-login.model';
 import { Resposta } from './Resposta';
 
 @Injectable({
@@ -11,7 +11,7 @@ import { Resposta } from './Resposta';
 })
 export class AccountService {
 
-  baseUrl = "https://localhost:7199/login";
+  baseUrl = "https://localhost:7272/Autenticacao/login";
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) { }
 
@@ -21,7 +21,7 @@ export class AccountService {
       const r = this.http
       .post<Resposta>(this.baseUrl, login, this._httpOptions);
 
-      console.log('deu OK :'+ r)
+      console.log('deu OK :'+ r.subscribe)
       resolve(true);
     }) 
   }

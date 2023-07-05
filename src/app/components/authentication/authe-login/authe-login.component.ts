@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { AccountService } from './../../../account/shared/account.service';
 import { Component, OnInit } from '@angular/core';
-import { Login } from './login.model';
+import { Login } from "./authe-login.model";
 
 @Component({
   selector: 'app-authe-login',
@@ -11,8 +11,8 @@ import { Login } from './login.model';
 export class AutheLoginComponent implements  OnInit{
   
   login: Login = {
-    name: '',
-    password: ''
+    email: '',
+    password: ""
 
   }
   constructor(private AccountService: AccountService, private router: Router ){ }
