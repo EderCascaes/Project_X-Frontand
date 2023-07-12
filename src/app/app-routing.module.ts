@@ -9,21 +9,24 @@ import { AutheLoginComponent } from './components/authentication/authe-login/aut
 import { AuthGuard } from './account/shared/auth.guard';
 
 const routes: Routes = [
-    { path:'',  component: HomeComponent,
-        children:[  
-          {path: "person", component: PersonComponent},
-          {path: "person/create", component: PersonCreateComponent}
-          ],
-          canActivate:[AuthGuard]   
-    },
-    {path:'', component: AutheLoginComponent,
-                      children:[
-                        {path: '' ,redirectTo: 'login' , pathMatch:'full'},
-                        {path: 'login',component: AutheLoginComponent}
-                      ]      
-    }
-  ];
+  { path:'',  
+  component: HomeComponent,        
+  canActivate:[AuthGuard]   
+},
+  {path:'login', 
+  component: AutheLoginComponent,                    
+},
+{path:'persons', 
+      component: PersonComponent,     
+      canActivate:[AuthGuard]                     
+}//,
+// { path:'"person/create"', 
+//        component: PersonCreateComponent, 
+//       canActivate:[AuthGuard]                     
+// }
 
+
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

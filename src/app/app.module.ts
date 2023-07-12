@@ -20,6 +20,7 @@ import { AutheLoginComponent } from './components/authentication/authe-login/aut
 import { HomeComponent } from './views/home/home.component';
 import { PersonComponent } from './views/person/person.component';
 import { FormsModule } from '@angular/forms';
+import { LoginService } from './components/authentication/authe-login/auth-login.service';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
