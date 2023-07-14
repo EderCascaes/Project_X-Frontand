@@ -1,4 +1,9 @@
-<app-header></app-header>
-<!--<app-nav></app-nav>-->
-<router-outlet></router-outlet>
-<app-footer></app-footer>
+<div *ngIf="showMenu">
+    <app-header  ></app-header>
+    <app-nav ></app-nav>
+    <app-footer></app-footer>   
+</div>
+
+<div *ngIf="!showMenu">    
+    <app-authe-login></app-authe-login>  
+</div>

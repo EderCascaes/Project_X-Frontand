@@ -10,12 +10,15 @@ import { LoginService } from './../../authentication/authe-login/auth-login.serv
 export class NavComponent {
 
   constructor(
-     private loginService: LoginService,
-      private router: Router,){ }
+          private loginService: LoginService,
+          private router: Router,){ }
 
   logOut(){
-    this.loginService.mostrarMenuEmitter.emit(false);
-    localStorage.removeItem('token_X');   
+          this.loginService.mostrarMenuEmitter.emit(false);
+          localStorage.removeItem('token_X');   
+          this.router.navigate(['login']);
+          // window.location.reload();
+          
   }
 
 }

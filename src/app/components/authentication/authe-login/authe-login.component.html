@@ -16,7 +16,7 @@
                 <button type="submit" (click)="onSubmit()" class="btn btn-primary btn-block" [disabled]="form.form.invalid"><a class="text">Entrar</a></button>
                 <!--<button type="button" class="btn btn-link btn-block" [routerLink]="['/criar_conta']">Criar uma conta</button>-->
         
-                      <h1 id="msgErro" *ngIf="showMe">Usuario ou senha inválido</h1>                  
+                      <h1 id="msgErro" *ngIf="showMsgError">Usuario ou senha inválido</h1>                  
                   
         
             </form>      

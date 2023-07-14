@@ -15,23 +15,23 @@ import { LoginService } from './auth-login.service';
 
 export class AutheLoginComponent implements  OnInit{ 
   
-  showMe : boolean = false;
+  showMsgError : boolean = false;
+ 
   login: Login = {
-    email: '',
-    password: ""
+      email: '',
+      password: ""
   }
+      
   constructor(
    // private AccountService: AccountService,
      private router: Router,
-     private loginService : LoginService ){ }
+     private loginService : LoginService 
+     ){ }
 
   async onSubmit() {
     try{
       let response = await this.loginService.login(this.login); 
-      
-      if(response == null)
-        this.showMe = true;
-      this.router.navigate(['/']);
+      console.log('onSubmit : ' + response);
 
     }catch(error){      
       console.log('Correu um erro : ' + error);
