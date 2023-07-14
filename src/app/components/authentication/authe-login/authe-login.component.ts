@@ -1,7 +1,9 @@
+import { Response } from './../../../objectShared/Response';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Login } from "./authe-login.model";
 import { LoginService } from './auth-login.service';
+import { Observable, Subject } from "rxjs";
 
 
 
@@ -13,13 +15,12 @@ import { LoginService } from './auth-login.service';
 })
 
 
-export class AutheLoginComponent implements  OnInit{ 
-  
-  showMsgError : boolean = false;
+export class AutheLoginComponent implements  OnInit{   
  
+  showMsgError :boolean = false; 
   login: Login = {
-      email: '',
-      password: ""
+      Email: '',
+      Password: ""
   }
       
   constructor(
@@ -28,17 +29,32 @@ export class AutheLoginComponent implements  OnInit{
      private loginService : LoginService 
      ){ }
 
-  async onSubmit() {
-    try{
-      let response = await this.loginService.login(this.login); 
-      console.log('onSubmit : ' + response);
 
-    }catch(error){      
-      console.log('Correu um erro : ' + error);
+
+  onSubmit(): void {
+     this.loginService.login(this.login).subscribe(response => {
+    
+     console.log('Resultado response ok '+response)
+
+          console.log('Resultado response ok '+response)
+          localStorage.setItem('token_X','Bearer ' + response.response.token);         
+          this.loginService.mostrarMenuEmitter.emit(true); 
+          this.router.navigate(['']);
+          this.loginService.showMessage(response.notifications[0].message);   
+      
+        
+      
+    }, 
+        error =>  {
+          console.log('Resultado deu ruim '+error);
+          (<HTMLInputElement>document.getElementById('email')).value = '';
+          (<HTMLInputElement>document.getElementById('password')).value = '';
+          this.showMsgError = true;
+        })
     }
-  }
 
   ngOnInit(): void {
+   
   } 
 
 }

@@ -3,11 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from  '@angular/material/button';
 import { MatSnackBarModule } from  '@angular/material/snack-bar';
 import { HttpClientModule } from  '@angular/common/http';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from  '@angular/material/sidenav';
 import { MatListModule } from  '@angular/material/list';
 import { MatCardModule } from  '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,7 +47,8 @@ import { LoginService } from './components/authentication/authe-login/auth-login
     MatButtonModule,
     MatSnackBarModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    MatIconModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

@@ -6,12 +6,12 @@
                 <div class="form-group">
                     <label>email</label>
                     <input class="form-control" type="text" name="email" 
-                    id="email"  [(ngModel)]="login.email"  required />
+                    id="email"  [(ngModel)]="login.Email"  required />
                 </div>
                 <div class="form-group">
                     <label>Senha</label>
                     <input class="example-form" type="password" name="password"
-                    id="password"   [(ngModel)]="login.password" required/>      
+                    id="password"   [(ngModel)]="login.Password" required/>      
                 </div> 
                 <button type="submit" (click)="onSubmit()" class="btn btn-primary btn-block" [disabled]="form.form.invalid"><a class="text">Entrar</a></button>
                 <!--<button type="button" class="btn btn-link btn-block" [routerLink]="['/criar_conta']">Criar uma conta</button>-->

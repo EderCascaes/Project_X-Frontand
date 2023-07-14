@@ -14,10 +14,11 @@ export class NavComponent {
           private router: Router,){ }
 
   logOut(){
-          this.loginService.mostrarMenuEmitter.emit(false);
+         
           localStorage.removeItem('token_X');   
-          this.router.navigate(['login']);
-          // window.location.reload();
+         // this.router.navigate(['login']);
+          this.loginService.mostrarMenuEmitter.emit(false);
+           window.location.reload();
           
   }
 
