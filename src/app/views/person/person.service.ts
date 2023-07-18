@@ -1,16 +1,18 @@
+import { Response } from './../../objectShared/Response';
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { HttpClient } from "@angular/common/http";
 import { Person } from "./person.model";
 import { Observable, EMPTY } from "rxjs";
 import { map, catchError } from "rxjs/operators";
+import { HttpResponse } from  '../../objectShared/HttpResponse'
 
 @Injectable({
   providedIn: "root",
 })
 
 export class PersonService {
-  baseUrl = "http://localhost:5211/api/vi/person";
+  baseUrl = "https://localhost:443/pessoa";
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -24,15 +26,15 @@ export class PersonService {
   }
 
   createPerson(person: Person): Observable<Person> {
-    return this.http.post<Person>(this.baseUrl, person).pipe(
+    return this.http.post<Person>(this.baseUrl+'/cadastro', person).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   read(): Observable<Person[]> {
-    return this.http.get<Person[]>(this.baseUrl).pipe(
-      map((obj) => obj),
+    return this.http.get<HttpResponse>(this.baseUrl+'/obter').pipe(
+      map((obj) => obj.response),
       catchError((e) => this.errorHandler(e))
     );
   }

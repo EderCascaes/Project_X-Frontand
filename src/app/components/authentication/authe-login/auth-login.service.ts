@@ -3,10 +3,8 @@ import { MatSnackBar } from "@angular/material/snack-bar";
 import { HttpClient, HttpEvent } from "@angular/common/http";
 import { Login } from "./authe-login.model";
 import { Observable, EMPTY } from "rxjs";
-import { map, catchError, defaultIfEmpty } from "rxjs/operators";
 import { HttpResponse } from  '../../../objectShared/HttpResponse'
 import { Router } from "@angular/router";
-import {AutheLoginComponent} from './authe-login.component'
 
 @Injectable({
   providedIn: "root",

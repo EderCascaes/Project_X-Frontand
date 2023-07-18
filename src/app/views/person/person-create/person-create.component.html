@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-title>Cadastrar novos usuarios</mat-card-title>
+    <form>
+        <mat-form-field >
+            <input matInput placeholder="Nome"
+                [(ngModel)]="person.nome" name="name">           
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Email"
+                [(ngModel)]="person.email" name="emial">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Telefone"
+                [(ngModel)]="person.telefone" name="telefone">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Data de nascimento"
+                [(ngModel)]="person.dataNascimento" name="dataNascimento">
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="createPerson()" color="primary">
+        Salvar
+    </button>
+    
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>

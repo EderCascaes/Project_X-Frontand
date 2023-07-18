@@ -9,13 +9,16 @@ import { MatListModule } from  '@angular/material/list';
 import { MatCardModule } from  '@angular/material/card';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatTableModule } from '@angular/material/table';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/template/header/header.component';
 import { FooterComponent } from './components/template/footer/footer.component';
 import { NavComponent } from './components/template/nav/nav.component';
-import { PersonCreateComponent } from './components/person/person-create/person-create.component';
+import { PersonCreateComponent } from './views/person/person-create/person-create.component';
 import { AutheLoginComponent } from './components/authentication/authe-login/authe-login.component';
 
 import { HomeComponent } from './views/home/home.component';
@@ -48,7 +51,10 @@ import { LoginService } from './components/authentication/authe-login/auth-login
     MatSnackBarModule,
     HttpClientModule,
     FormsModule,
-    MatIconModule
+    MatIconModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatTableModule
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]
