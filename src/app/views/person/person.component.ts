@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Person } from './person.model';
 import { PersonService } from './person.service';
-import { HttpResponse } from  '../../objectShared/HttpResponse'
+import { HttpResponseFront } from  '../../objectShared/HttpResponseFront'
 
 
 @Component({
@@ -12,9 +12,9 @@ import { HttpResponse } from  '../../objectShared/HttpResponse'
 })
 export class PersonComponent implements OnInit {
  
-  httpResponse : HttpResponse
+  httpResponse : HttpResponseFront
   persons : object[]
-  displayedColumns = ['id', 'nome', 'email',  'telefone', 'dataNascimento' ,'action']  
+  displayedColumns = ['id', 'nome', 'email',  'telefone', 'cpf','dataNascimento' ,'action']  
 
   constructor(private router:Router, private personService : PersonService){
    

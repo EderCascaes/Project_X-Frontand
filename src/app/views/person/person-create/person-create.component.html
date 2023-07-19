@@ -9,9 +9,13 @@
             <input matInput placeholder="Email"
                 [(ngModel)]="person.email" name="emial">
         </mat-form-field>
+        <mat-form-field >
+            <input matInput placeholder="Telefone" 
+                [(ngModel)]="person.telefone" name="telefone"  mask="(00) 00000-0000">
+        </mat-form-field>
         <mat-form-field>
-            <input matInput placeholder="Telefone"
-                [(ngModel)]="person.telefone" name="telefone">
+            <input matInput placeholder="cpf"
+                [(ngModel)]="person.cpf" name="cpf">
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Data de nascimento"
@@ -22,7 +26,12 @@
         Salvar
     </button>
     
-    <button mat-raised-button (click)="cancel()">
+    <button class="button" mat-raised-button (click)="cancel()">
         Cancelar
     </button>
 </mat-card>
+
+<button class="listPerson" mat-raised-button (click)="navigateToListPerson()">
+    Lista de usuarios 
+</button>
+

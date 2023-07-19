@@ -39,7 +39,11 @@ createPerson(): void {
 
 }
   cancel(): void {
-    this.router.navigate(['/person'])
+    this.router.navigate(['/persons'])
+  }
+
+  navigateToListPerson(): void {
+    this.router.navigate(['/persons'])
   }
 
 

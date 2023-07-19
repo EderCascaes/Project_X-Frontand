@@ -4,4 +4,16 @@ mat-form-field {
     display: block;
   }
 
- 
+
+  #button{
+    margin-top: 1rem;
+  }
+
+ .listPerson{
+  margin: 1rem;
+ height: 50px;
+ width: 120px;
+ position: fixed;
+ top: 35px;
+ right: 32px;
+ }

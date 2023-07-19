@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 import { Person } from "./person.model";
 import { Observable, EMPTY } from "rxjs";
 import { map, catchError } from "rxjs/operators";
-import { HttpResponse } from  '../../objectShared/HttpResponse'
+import { HttpResponseFront } from  '../../objectShared/HttpResponseFront'
 
 @Injectable({
   providedIn: "root",
@@ -33,7 +33,7 @@ export class PersonService {
   }
 
   read(): Observable<Person[]> {
-    return this.http.get<HttpResponse>(this.baseUrl+'/obter').pipe(
+    return this.http.get<HttpResponseFront>(this.baseUrl+'/obter').pipe(
       map((obj) => obj.response),
       catchError((e) => this.errorHandler(e))
     );
