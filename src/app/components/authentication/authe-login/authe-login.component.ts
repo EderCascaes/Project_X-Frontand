@@ -33,10 +33,8 @@ export class AutheLoginComponent implements  OnInit{
 
   onSubmit(): void {
      this.loginService.login(this.login).subscribe(response => {
-    
-     console.log('Resultado response ok '+response)
-
-          console.log('Resultado response ok '+response)
+      
+          this.showMsgError = false;
           localStorage.setItem('token_X','Bearer ' + response.response.token);         
           this.loginService.mostrarMenuEmitter.emit(true); 
           this.router.navigate(['']);

@@ -1,11 +1,12 @@
+
 export interface Person {
     id?  :number
     nome    : string
-    email : string
-    telefone : string
-    dataNascimento   : string
+    email? : string
+    telefone ?: string
+    dataNascimento ?  : string
     cpf : string
-    funcao  : string
+    funcao ? : string
 }
 
 

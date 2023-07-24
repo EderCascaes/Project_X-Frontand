@@ -2,7 +2,7 @@
 <div class="authentication mat-elevation-z4" >       
    
     <h2 class="text-center">Logar</h2> 
-        <form  (ngSubmit)="onSubmit" #form="ngForm">
+        <form   (ngSubmit)="onSubmit" #form="ngForm">
                 <div class="form-group">
                     <label>email</label>
                     <input class="form-control" type="text" name="email" 
@@ -16,9 +16,8 @@
                 <button type="submit" (click)="onSubmit()" class="btn btn-primary btn-block" [disabled]="form.form.invalid"><a class="text">Entrar</a></button>
                 <!--<button type="button" class="btn btn-link btn-block" [routerLink]="['/criar_conta']">Criar uma conta</button>-->
         
-                      <h1 id="msgErro" *ngIf="showMsgError">Usuario ou senha inválido</h1>                  
-                  
-        
+                      <h1 id="msgErro" *ngIf="showMsgError">Usuario ou senha inválido</h1>                
+             
             </form>      
         
     </div>

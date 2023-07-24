@@ -1,5 +1,5 @@
+
 mat-form-field {
-    width: auto;
     padding: 0,3rem;
     display: block;
   }
@@ -10,10 +10,10 @@ mat-form-field {
   }
 
  .listPerson{
-  margin: 1rem;
- height: 50px;
- width: 120px;
- position: fixed;
- top: 35px;
- right: 32px;
+    margin: 1rem;
+    height: 50px;
+    width: 120px;
+    position: fixed;
+    top: 35px;
+    right: 32px;
  }

@@ -1,22 +1,33 @@
-<mat-sidenav-container class="container">
-    
-    <mat-sidenav class="sidenav" mode="side" opened 
+<mat-toolbar *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+   <button mat-icon-button >
+    <mat-icon *ngIf="!sidenav.opened">
+        menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+        close
+    </mat-icon>
+   </button>      
+</mat-toolbar>
+
+
+<mat-sidenav-container class="container">        
+    <mat-sidenav   #sidenav="matSidenav" 
         fixedInViewport="true" fixedTopGap="64">
         <mat-nav-list class="nav-list">
-            <a mat-list-item routerLink="/">
+            <a mat-list-item (click)="showView()" routerLink="/">
                 <i class="material-icons">
                     home
                 </i>
                 Inicio
             </a>
-            <a mat-list-item   routerLink="/person/create">
+            <a mat-list-item  (click)="showView()" routerLink="/person/create">
                 <i class="material-icons" >
                     person 
                 </i> 
                 Cadastrar               
             </a>
 
-            <a mat-list-item   routerLink="/login" (click)="logOut()">
+            <a mat-list-item  (click)="showView()" routerLink="/login" (click)="logOut()">
                 <i class="material-icons" color="red" >
                     logout
                 </i> 
@@ -27,6 +38,8 @@
     </mat-sidenav>
 
     <mat-sidenav-content class="content">
-        <router-outlet></router-outlet>  
+        <div class="content mat-elevation-z4">
+            <router-outlet></router-outlet>
+        </div>
     </mat-sidenav-content>
 </mat-sidenav-container>

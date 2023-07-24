@@ -11,7 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { MatTableModule } from '@angular/material/table';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table' 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,10 +22,14 @@ import { NavComponent } from './components/template/nav/nav.component';
 import { PersonCreateComponent } from './views/person/person-create/person-create.component';
 import { AutheLoginComponent } from './components/authentication/authe-login/authe-login.component';
 
+
 import { HomeComponent } from './views/home/home.component';
-import { PersonComponent } from './views/person/person.component';
 import { FormsModule } from '@angular/forms';
 import { LoginService } from './components/authentication/authe-login/auth-login.service';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { PersonReadComponent } from './components/person/person-read/person-read.component';
+
 
 
 @NgModule({
@@ -34,9 +39,9 @@ import { LoginService } from './components/authentication/authe-login/auth-login
     FooterComponent,
     NavComponent,
     HomeComponent,
-    PersonComponent,
     PersonCreateComponent,
-    AutheLoginComponent
+    AutheLoginComponent   ,
+    PersonReadComponent
     
   ],
   imports: [
@@ -54,7 +59,11 @@ import { LoginService } from './components/authentication/authe-login/auth-login
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatDividerModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
+
   ],
   providers: [LoginService],
   bootstrap: [AppComponent]

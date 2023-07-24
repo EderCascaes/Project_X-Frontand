@@ -32,6 +32,9 @@
     width: 95%;
 }
 
+form{
+    display: auto;
+}
  
 .form-group label{
     margin-left: 10px;

@@ -1,17 +1,27 @@
-.sidenav {
-    background-color: #5067e9;
+mat-toolbar {
+    width: 20px;
+    position:absolute; top: 7px; right:50px;    
+    color: rgba(5, 1, 22, 0.849);   
+    
+}
+
+mat-sidenav {
+    margin: 16px;
     width: 200px;
-}
-
-.sidenav a {
-    color: #f0afb2;
-}
-
-.sidenav i {
-    padding-right: 10px;
+    border-right: none;
+    background:  #3886df;
+    color: white;
+    border-radius: 10px;
+    padding: 16px;
 }
 
 .content {
+    height: calc(100vh - 98px);
     padding: 16px;
     background-color: #FFF;
+    border-radius: 10px;
+}
+
+mat-sidenav-container{
+    height: calc(100vh - 65px);
 }
