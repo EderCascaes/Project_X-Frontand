@@ -1,27 +1,83 @@
 <mat-card>
     <mat-card-title>Cadastrar novos usuarios</mat-card-title>
-    <form>
+
+    <form class="form-horizontal">
+       <div class="form-group">
+          
+                <mat-form-field class="twoElement" >            
+                    <input class="formName" matInput placeholder="Nome"
+                    [(ngModel)]="person.nome" name="name" required>     
+                </mat-form-field>
+         
+                <mat-form-field class="twoElement">
+                    <input class="formEmail" matInput placeholder="Email"
+                    [(ngModel)]="person.email" name="email" required
+                    >
+                </mat-form-field>
+            </div>
+        <div class="form-group">
+                <mat-form-field class="threeElement" >
+                    <input matInput placeholder="Telefone" 
+                    [(ngModel)]="person.telefone" id="telefone" name="telefone"required
+                    mask="(00)00000-0000">
+                </mat-form-field>
+           
+                <mat-form-field class="threeElement">
+                    <input matInput placeholder="cpf" 
+                    [(ngModel)]="person.cpf" id="cpf" name="cpf" required
+                    mask="000.000.000-00">
+                </mat-form-field>
+          
+                <mat-form-field class="threeElement">
+                    <input matInput placeholder="Data de nascimento"
+                    [(ngModel)]="person.dataNascimento" id="data" name="dataNascimento" required
+                    mask="00/00/0000">
+                </mat-form-field>
+        </div>
+        <div class="form-group">
+                <!--Endereco-->
+                <mat-form-field class="threeElement" >
+                    <input matInput placeholder="logradouro"
+                        [(ngModel)]="endereco.logradouro" name="logradouro" required>           
+                </mat-form-field>
+          
+                <mat-form-field class="threeElement">
+                    <input matInput placeholder="numero"
+                        [(ngModel)]="endereco.numero" name="numero"required
+                        mask="000000">
+
+                </mat-form-field>
+          
+                <mat-form-field class="threeElement">
+                    <input matInput placeholder="complemento"
+                        [(ngModel)]="endereco.logradouro" name="logradouro" required>           
+                </mat-form-field>
+
+        </div>
+        <div class="form-group">
+                <mat-form-field class="threeElement">
+                    <input matInput placeholder="bairro"
+                        [(ngModel)]="endereco.bairro" name="bairro" required>
+                </mat-form-field>
+         
+                <mat-form-field class="threeElement">
+                    <input matInput placeholder="cidade"
+                        [(ngModel)]="endereco.cidade" name="cidade" required>
+                </mat-form-field> 
+
+                <mat-form-field class="threeElement">
+                    <input  matInput placeholder="estado"
+                        [(ngModel)]="endereco.estado" name="estado" required>
+                </mat-form-field>        
+        </div>
         <mat-form-field >
-            <input matInput placeholder="Nome"
-                [(ngModel)]="person.nome" name="name">           
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Email"
-                [(ngModel)]="person.email" name="emial">
-        </mat-form-field>
-        <mat-form-field >
-            <input matInput placeholder="Telefone" 
-                [(ngModel)]="person.telefone" name="telefone" >
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="cpf"
-                [(ngModel)]="person.cpf" name="cpf">
-        </mat-form-field>
-        <mat-form-field>
-            <input matInput placeholder="Data de nascimento"
-                [(ngModel)]="person.dataNascimento" name="dataNascimento">
-        </mat-form-field>
-    </form>
+            <input matInput placeholder="cep" 
+                [(ngModel)]="endereco.cep" id="cep" name="cep"required
+                mask="00000-000">
+        </mat-form-field>    
+
+</form>
+
     <button mat-raised-button (click)="createPerson()" color="primary">
         Salvar
     </button>
@@ -29,9 +85,10 @@
     <button class="button" mat-raised-button (click)="cancel()">
         Cancelar
     </button>
+
 </mat-card>
+
 
 <button class="listPerson" mat-raised-button (click)="navigateToListPerson()">
     Lista de usuarios 
 </button>
-

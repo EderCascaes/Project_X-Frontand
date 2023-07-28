@@ -1,3 +1,4 @@
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from  '@angular/material/button';
@@ -30,6 +31,13 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { PersonReadComponent } from './components/person/person-read/person-read.component';
 
+import { CommonModule } from '@angular/common';
+
+import {  NgxMaskDirective ,  NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
+
+
+
+
 
 
 @NgModule({
@@ -41,7 +49,8 @@ import { PersonReadComponent } from './components/person/person-read/person-read
     HomeComponent,
     PersonCreateComponent,
     AutheLoginComponent   ,
-    PersonReadComponent
+    PersonReadComponent,
+   
     
   ],
   imports: [
@@ -62,10 +71,12 @@ import { PersonReadComponent } from './components/person/person-read/person-read
     MatDividerModule,
     MatTableModule,
     MatPaginatorModule,
-    MatSortModule
-
+    MatSortModule,
+    CommonModule,  
+    NgxMaskDirective, 
+    NgxMaskPipe 
   ],
-  providers: [LoginService],
+  providers: [LoginService, provideNgxMask()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

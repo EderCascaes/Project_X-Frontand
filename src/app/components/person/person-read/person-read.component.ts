@@ -14,15 +14,16 @@ import { Router } from '@angular/router';
 })
 
 
-export class PersonReadComponent implements AfterViewInit {
+export class PersonReadComponent  {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<Person>;
   dataSource: PersonReadDataSource;
+  responsive  = true;
+  persons : object[];
+  qtd : number
 
-  persons : object[]
-
-  displayedColumns = ['nome', 'email',  'telefone', 'cpf','dataNascimento' ,'action'] 
+  displayedColumns = ['id', 'nome', 'email',  'telefone', 'cpf' , 'dataNascimento', 'action'] 
 
   constructor(private router: Router, private personService : PersonService) {
     
@@ -32,13 +33,15 @@ export class PersonReadComponent implements AfterViewInit {
     this.personService.read().subscribe(resp => {      
       this.persons = resp
       console.log(resp)
-      this.dataSource = new PersonReadDataSource(resp);      
+      this.dataSource = new PersonReadDataSource(resp); 
+      this.qtd = this.dataSource.data.length;
+      this.AfterViewInit(this.dataSource);     
     })
   }
 
-  ngAfterViewInit(): void {
-    this.dataSource.sort = this.sort;
-    this.dataSource.paginator = this.paginator;
+  AfterViewInit(dataSource: PersonReadDataSource): void {
+    dataSource.sort = this.sort;
+    dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
 }

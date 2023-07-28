@@ -1,9 +1,8 @@
-import { Response } from './../../../objectShared/Response';
+import { Response } from '../../../Shared/Response';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Login } from "./authe-login.model";
 import { LoginService } from './auth-login.service';
-import { Observable, Subject } from "rxjs";
 
 
 
@@ -52,7 +51,6 @@ export class AutheLoginComponent implements  OnInit{
     }
 
   ngOnInit(): void {
-   
   } 
 
 }

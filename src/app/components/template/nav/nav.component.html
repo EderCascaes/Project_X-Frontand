@@ -35,11 +35,23 @@
             </a>
     
         </mat-nav-list>
+       
     </mat-sidenav>
 
-    <mat-sidenav-content class="content">
-        <div class="content mat-elevation-z4">
-            <router-outlet></router-outlet>
-        </div>
-    </mat-sidenav-content>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/0.9.0/jquery.mask.min.js"></script>
+
+<script>
+     $('#cep').mask('00000-000');
+     $('#data').mask('00/00/0000');
+     $('#telefone').mask('(00) 00000-0000');
+     $('#cpf').mask('000.000.000-00', {reverse: true});
+</script>
+
+            <mat-sidenav-content class="content">
+                <div class="content int mat-elevation-z4">
+                    <router-outlet></router-outlet>
+                </div>
+            </mat-sidenav-content>
+       
 </mat-sidenav-container>

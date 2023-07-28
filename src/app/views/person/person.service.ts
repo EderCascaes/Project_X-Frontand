@@ -1,11 +1,11 @@
-import { Response } from './../../objectShared/Response';
+import { Response } from '../../Shared/Response';
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { HttpClient } from "@angular/common/http";
 import { Person } from "./person.model";
 import { Observable, EMPTY } from "rxjs";
 import { map, catchError } from "rxjs/operators";
-import { HttpResponseFront } from  '../../objectShared/HttpResponseFront'
+import { HttpResponseFront } from  '../../Shared/HttpResponseFront'
 
 @Injectable({
   providedIn: "root",

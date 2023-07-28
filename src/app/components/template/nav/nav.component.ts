@@ -26,7 +26,7 @@ export class NavComponent implements AfterViewInit {
            }
 
   ngOnInit(){   
-    //  this.ref.detectChanges();         
+    //  this.ref.detectChanges();  
   }
 
   showView(){

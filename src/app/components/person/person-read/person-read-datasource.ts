@@ -5,13 +5,14 @@ import { map } from 'rxjs/operators';
 import { Observable, of as observableOf, merge } from 'rxjs';
 import { Person } from 'src/app/views/person/person.model';
 
+/**
 // TODO: Replace this with your own data model type
 export interface PersonReadDataSource {
   name: string;
   cpf: string;
   id: number;
 }
-/**
+
 // TODO: replace this with real data from your application
 const EXAMPLE_DATA: Person[] = [
   {id: 1, nome: 'Hydrogen', cpf: '154.641.234-55'},
@@ -61,19 +62,12 @@ export class PersonReadDataSource extends DataSource<Person> {
     if (this.paginator && this.sort) {
       // Combine everything that affects the rendered data into one update
       // stream for the data-table to consume.
-      
-      console.log("deu bom");
-      
-      console.log(this.sort);
-      
-      console.log(this.paginator);
+   
       return merge(observableOf(this.data), this.paginator.page, this.sort.sortChange)
-        .pipe(map(() => {
-          console.log("data " + this.data );
+        .pipe(map(() => {        
           return this.getPagedData(this.getSortedData([...this.data ]));
         }));
     } else {
-      console.log("deu ruim");
       throw Error('Please set the paginator and sort on the data source before connecting.');
     }
   }
@@ -110,6 +104,7 @@ export class PersonReadDataSource extends DataSource<Person> {
       const isAsc = this.sort?.direction === 'asc';
       switch (this.sort?.active) {
         case 'nome': return compare(a.nome, b.nome, isAsc);
+        case 'id': return compare(+a.id, +b.id, isAsc);
         case 'cpf': return compare(+a.cpf, +b.cpf, isAsc);
         default: return 0;
       }

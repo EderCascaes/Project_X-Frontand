@@ -1,7 +1,19 @@
-.home .title {
+.home .title {    
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Cambria, Arial;
     font-size: 3rem;
     font-weight: 300;
-    line-height: 1.2;
+    line-height: 1.2;  
+    color: #3886df;
+}
+
+.subtitle{    
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Cambria, Arial;      
 }
 
 .home .subtitle {

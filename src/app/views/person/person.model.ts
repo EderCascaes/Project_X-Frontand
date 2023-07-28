@@ -1,6 +1,6 @@
 
 export interface Person {
-    id?  :number
+    id :number
     nome    : string
     email? : string
     telefone ?: string
@@ -17,11 +17,3 @@ export interface Fisioterapeuta {
 
 
 
-export interface Endereco {
-    Cidade : string
-    Estado : string
-    Logradouro : string
-    Numero : number
-    Complemento : string
-    Cep : string
-}

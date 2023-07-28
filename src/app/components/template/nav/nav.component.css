@@ -23,5 +23,9 @@ mat-sidenav {
 }
 
 mat-sidenav-container{
-    height: calc(100vh - 65px);
+    height: calc(90vh - 75px);
+}
+
+mat-sidenav{
+    max-height: 77% !important;
 }
