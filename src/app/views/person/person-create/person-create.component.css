@@ -6,14 +6,10 @@ mat-card-title {
 }
 
 
-
-
 .form-group{
  display: block;
  margin: 5px;
 }
-
-
 
 .twoElement{
   width: 48%;
@@ -21,15 +17,18 @@ mat-card-title {
   margin-right: 1px; 
 }
 
-
-
 .threeElement {
-  width: 30%;
+  width: 31%;
   padding: 3px;
   border: 5%;
   margin: 5px;
 }
-
+.fourElement {
+  width: 22%;
+  padding: 3px;
+  border: 5%;
+  margin: 5px;
+}
 
   #button{
     margin-top: 1rem;
@@ -43,3 +42,29 @@ mat-card-title {
     top: 35px;
     right: 32px;
  }
+
+
+ @media only screen and (max-width: 600px) {
+
+  .twoElement{
+    width: 100%;
+    margin-left: 2px;
+    margin-right: 1px; 
+  }
+   
+  
+  .threeElement {
+    width: 100%;
+    padding: 3px;
+    border: 5%;
+    margin: 5px;
+  }
+  .fourElement {
+    width: 100%;
+    padding: 3px;
+    border: 5%;
+    margin: 5px;
+  }
+  
+  
+}

@@ -6,13 +6,14 @@ import { Person } from "./person.model";
 import { Observable, EMPTY } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 import { HttpResponseFront } from  '../../Shared/HttpResponseFront'
+import { Endereco } from './person-endereco.model';
 
 @Injectable({
   providedIn: "root",
 })
 
 export class PersonService {
-  baseUrl = "https://localhost:443/pessoa";
+  baseUrl = "https://localhost:7272";
 
   constructor(private snackBar: MatSnackBar, private http: HttpClient) {}
 
@@ -26,21 +27,41 @@ export class PersonService {
   }
 
   createPerson(person: Person): Observable<Person> {
-    return this.http.post<Person>(this.baseUrl+'/cadastro', person).pipe(
+    return this.http.post<Person>(this.baseUrl+'/pessoa/cadastro', person).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
+  createAddress(endereco: Endereco): Observable<number> {
+    
+      if(endereco.complemento == null){
+        endereco.complemento="";
+      }
+       console.log('comlemento do endereço ' + endereco.complemento )
+
+    return this.http.post<HttpResponseFront>(this.baseUrl+'/endereco/cadastro', endereco).pipe(
+      map((obj) => obj.response),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
   read(): Observable<Person[]> {
-    return this.http.get<HttpResponseFront>(this.baseUrl+'/obter').pipe(
+    return this.http.get<HttpResponseFront>(this.baseUrl+'/pessoa/obter').pipe(
+      map((obj) => obj.response),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+  getAddress(cep: string): Observable<Endereco> {
+    return this.http.get<HttpResponseFront>(this.baseUrl+'/Endereco/ObterEnderecoPorCep/'+cep).pipe(
       map((obj) => obj.response),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   readById(id: number): Observable<Person> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrl}/pessoa/${id}`;
     return this.http.get<Person>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -48,7 +69,7 @@ export class PersonService {
   }
 
   update(person: Person): Observable<Person> {
-    const url = `${this.baseUrl}/${person.id}`;
+    const url = `${this.baseUrl}/pessoa/${person.id}`;
     return this.http.put<Person>(url, person).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -56,7 +77,7 @@ export class PersonService {
   }
 
   delete(id: number): Observable<Person> {
-    const url = `${this.baseUrl}/${id}`;
+    const url = `${this.baseUrl}/pessoa/${id}`;
     return this.http.delete<Person>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -64,7 +85,7 @@ export class PersonService {
   }
 
   errorHandler(e: any): Observable<any> {
-    this.showMessage("Ocorreu um erro!", true);
+    this.showMessage("Ocorreu um erro!" + e, true);
     return EMPTY;
   }
 }

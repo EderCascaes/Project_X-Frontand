@@ -36,49 +36,87 @@
         </div>
         <div class="form-group">
                 <!--Endereco-->
-                <mat-form-field class="threeElement" >
+                <mat-form-field class="fourElement" >
                     <input matInput placeholder="logradouro"
                         [(ngModel)]="endereco.logradouro" name="logradouro" required>           
                 </mat-form-field>
           
-                <mat-form-field class="threeElement">
+                <mat-form-field class="fourElement">
                     <input matInput placeholder="numero"
                         [(ngModel)]="endereco.numero" name="numero"required
                         mask="000000">
 
                 </mat-form-field>
           
-                <mat-form-field class="threeElement">
+                <mat-form-field class="fourElement">
                     <input matInput placeholder="complemento"
-                        [(ngModel)]="endereco.logradouro" name="logradouro" required>           
+                        [(ngModel)]="endereco.complemento" name="complemento">           
                 </mat-form-field>
 
-        </div>
-        <div class="form-group">
-                <mat-form-field class="threeElement">
+                <mat-form-field class="fourElement">
                     <input matInput placeholder="bairro"
                         [(ngModel)]="endereco.bairro" name="bairro" required>
                 </mat-form-field>
+
+        </div>
+        <div class="form-group">               
          
-                <mat-form-field class="threeElement">
+                <mat-form-field class="fourElement">
                     <input matInput placeholder="cidade"
                         [(ngModel)]="endereco.cidade" name="cidade" required>
                 </mat-form-field> 
 
-                <mat-form-field class="threeElement">
-                    <input  matInput placeholder="estado"
-                        [(ngModel)]="endereco.estado" name="estado" required>
-                </mat-form-field>        
-        </div>
-        <mat-form-field >
-            <input matInput placeholder="cep" 
-                [(ngModel)]="endereco.cep" id="cep" name="cep"required
-                mask="00000-000">
-        </mat-form-field>    
+                <mat-form-field class="fourElement">
+                    <input matInput placeholder="cep"  (focusout)="getAddress(endereco.cep)"
+                    [(ngModel)]="endereco.cep" id="cep" name="CEP"required
+                    mask="00000-000">
+                </mat-form-field>       
+             
 
+                    <mat-form-field class="fourElement">
+                        <mat-select  [(value)]="selectedState" id="estado"  name="estado"  placeholder="Estado" > 
+                                <mat-option value="AC">Acre</mat-option>
+                                <mat-option value="AL">Alagoas</mat-option>
+                                <mat-option value="AP">Amapá</mat-option>
+                                <mat-option value="AM">Amazonas</mat-option>
+                                <mat-option value="BA">Bahia</mat-option>
+                                <mat-option value="CE">Ceará</mat-option>
+                                <mat-option value="DF">Distrito Federal</mat-option>
+                                <mat-option value="ES">Espírito Santo</mat-option>
+                                <mat-option value="GO">Goiás</mat-option>
+                                <mat-option value="MA">Maranhão</mat-option>
+                                <mat-option value="MT">Mato Grosso</mat-option>
+                                <mat-option value="MS">Mato Grosso do Sul</mat-option>
+                                <mat-option value="MG">Minas Gerais</mat-option>
+                                <mat-option value="PA">Pará</mat-option>
+                                <mat-option value="PB">Paraíba</mat-option>
+                                <mat-option value="PR">Paraná</mat-option>
+                                <mat-option value="PE">Pernambuco</mat-option>
+                                <mat-option value="PI">Piauí</mat-option>
+                                <mat-option value="RJ">Rio de Janeiro</mat-option>
+                                <mat-option value="RN">Rio Grande do Norte</mat-option>
+                                <mat-option value="RS">Rio Grande do Sul</mat-option>
+                                <mat-option value="RO">Rondônia</mat-option>
+                                <mat-option value="RR">Roraima</mat-option>
+                                <mat-option value="SC">Santa Catarina</mat-option>
+                                <mat-option value="SP">São Paulo</mat-option>
+                                <mat-option value="SE">Sergipe</mat-option>
+                                <mat-option value="TO">Tocantins</mat-option>
+                                <mat-option value="EX">Estrangeiro</mat-option>
+                        </mat-select>
+                </mat-form-field> 
+
+                <mat-form-field class="fourElement">
+                    <mat-select   [(value)]="person.funcoes"    id="funcao"  name="funcao"  placeholder="Funcão"  multiple> 
+                        <mat-option *ngFor="let role of roles" [value]="role.value">
+                                {{ role.viewValue}}
+                        </mat-option>
+                    </mat-select>
+            </mat-form-field> 
+        </div> 
 </form>
 
-    <button mat-raised-button (click)="createPerson()" color="primary">
+    <button mat-raised-button (click)="createAddress()" color="primary">
         Salvar
     </button>
     

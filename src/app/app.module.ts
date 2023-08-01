@@ -1,5 +1,5 @@
 
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from  '@angular/material/button';
 import { MatSnackBarModule } from  '@angular/material/snack-bar';
@@ -30,6 +30,7 @@ import { LoginService } from './components/authentication/authe-login/auth-login
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { PersonReadComponent } from './components/person/person-read/person-read.component';
+import { MatSelectModule } from '@angular/material/select';
 
 import { CommonModule } from '@angular/common';
 
@@ -50,7 +51,7 @@ import {  NgxMaskDirective ,  NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
     PersonCreateComponent,
     AutheLoginComponent   ,
     PersonReadComponent,
-   
+    
     
   ],
   imports: [
@@ -74,9 +75,11 @@ import {  NgxMaskDirective ,  NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
     MatSortModule,
     CommonModule,  
     NgxMaskDirective, 
-    NgxMaskPipe 
+    NgxMaskPipe ,
+    MatSelectModule
   ],
   providers: [LoginService, provideNgxMask()],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

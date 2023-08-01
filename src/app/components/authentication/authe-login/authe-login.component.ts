@@ -1,6 +1,6 @@
 import { Response } from '../../../Shared/Response';
 import { Router } from '@angular/router';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Login } from "./authe-login.model";
 import { LoginService } from './auth-login.service';
 
@@ -14,9 +14,10 @@ import { LoginService } from './auth-login.service';
 })
 
 
-export class AutheLoginComponent implements  OnInit{   
+export class AutheLoginComponent implements  OnInit, AfterViewInit{   
  
   showMsgError :boolean = false; 
+
   login: Login = {
       Email: '',
       Password: ""
@@ -29,11 +30,15 @@ export class AutheLoginComponent implements  OnInit{
      ){ }
 
 
+  ngAfterViewInit(): void {
+  }
+
+  
 
   onSubmit(): void {
+    
      this.loginService.login(this.login).subscribe(response => {
       
-          this.showMsgError = false;
           localStorage.setItem('token_X','Bearer ' + response.response.token);         
           this.loginService.mostrarMenuEmitter.emit(true); 
           this.router.navigate(['']);
@@ -50,7 +55,7 @@ export class AutheLoginComponent implements  OnInit{
         })
     }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   } 
 
 }

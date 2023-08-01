@@ -4,7 +4,7 @@ import { Endereco } from '../person-endereco.model';
 import { PersonService } from '../../person/person.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import * as $ from 'jquery/dist/jquery.slim';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -16,7 +16,15 @@ import * as $ from 'jquery/dist/jquery.slim';
 
 export class PersonCreateComponent {
  
-  datemask = [/\d/, /\d/, '/', /\d/, /\d/, '/', /\d/, /\d/, /\d/, /\d/];
+  selectedState = 'RS';
+  selectedRoles : number
+  
+  roles =[
+    {value: 0 , viewValue: 'Administrador'},
+    {value: 1 , viewValue: 'Funcionario'},
+    {value: 2 , viewValue: 'fisioterapeuta'},
+    {value: 3 , viewValue: 'Paciente'}
+  ]
 
   person: Person = {
     id: 0,
@@ -25,8 +33,8 @@ export class PersonCreateComponent {
     telefone: '',
     cpf : '',
     dataNascimento: '',
-    funcao: ''
-
+    funcoes: [] ,
+    idEndereco : 0
   };
 
   endereco : Endereco ={
@@ -47,13 +55,48 @@ export class PersonCreateComponent {
 }
 
 
-createPerson(): void {
-    this.personService.createPerson(this.person).subscribe(() => {
-    this.personService.showMessage('Usuario registrado !')
-    this.router.navigate(['/persons'])
-  })
+createPerson(id: any): void {  
+        
+  console.log('Id recebido'+ id) 
+          this.person.idEndereco = id;
+          console.log("Pessoa send fora  : "+this.person)
 
+          this.personService.createPerson(this.person).subscribe(() => {
+            console.log("Pessoa send : "+this.person)
+            this.personService.showMessage('Usuario registrado !')
+            this.router.navigate(['/persons'])
+          })
 }
+
+createAddress(): void {  
+
+          this.personService.createAddress(this.endereco).subscribe( response => {    
+            console.log('Id fora do if'+ response)  
+            if(response > 0){
+                console.log('Id do retorno'+ response)  
+                this.createPerson(response);
+            }
+          })
+}
+
+
+
+getAddress(cep : any): void{
+      this.personService.getAddress(cep).subscribe(resp => {
+      this.endereco= resp
+    //  console.log(resp)
+
+      if(resp.cidade != null){
+        this.selectedState=resp.estado
+        this.endereco.cep= cep
+        this.personService.showMessage('Endereço obtido com sucesso !')
+      }else{
+        this.selectedState='RS'
+        this.personService.showMessage('Problema ao tentar obter endereço deste CEP!')
+      }   
+  })
+}
+
   cancel(): void {
     this.router.navigate(['/persons'])
   }
@@ -62,48 +105,7 @@ createPerson(): void {
     this.router.navigate(['/persons'])
   }
 
-   mask(i: any,t: any){
-   
-    var v = i.value;
-    
-    if(isNaN(v[v.length-1])){
-       i.value = v.substring(0, v.length-1);
-       return;
-    }
-    
-    if(t == "data"){
-       i.setAttribute("maxlength", "10");
-       if (v.length == 2 || v.length == 5) i.value += "/";
-    }
- 
-    if(t == "cpf"){
-       i.setAttribute("maxlength", "14");
-       if (v.length == 3 || v.length == 7) i.value += ".";
-       if (v.length == 11) i.value += "-";
-    }
- 
-    if(t == "cnpj"){
-       i.setAttribute("maxlength", "18");
-       if (v.length == 2 || v.length == 6) i.value += ".";
-       if (v.length == 10) i.value += "/";
-       if (v.length == 15) i.value += "-";
-    }
- 
-    if(t == "cep"){
-       i.setAttribute("maxlength", "9");
-       if (v.length == 5) i.value += "-";
-    }
- 
-    if(t == "tel"){
-       if(v[0] == 9){
-          i.setAttribute("maxlength", "10");
-          if (v.length == 5) i.value += "-";
-       }else{
-          i.setAttribute("maxlength", "9");
-          if (v.length == 4) i.value += "-";
-       }
-    }
- }
+
 
 }
 

@@ -4,9 +4,10 @@ export interface Person {
     nome    : string
     email? : string
     telefone ?: string
-    dataNascimento ?  : string
+    dataNascimento  : string
     cpf : string
-    funcao ? : string
+    funcoes ? : number[]
+    idEndereco ? : number
 }
 
 
