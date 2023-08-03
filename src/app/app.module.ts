@@ -31,7 +31,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { PersonReadComponent } from './components/person/person-read/person-read.component';
 import { MatSelectModule } from '@angular/material/select';
-
 import { CommonModule } from '@angular/common';
 
 import {  NgxMaskDirective ,  NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
@@ -76,7 +75,8 @@ import {  NgxMaskDirective ,  NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
     CommonModule,  
     NgxMaskDirective, 
     NgxMaskPipe ,
-    MatSelectModule
+    MatSelectModule,
+  
   ],
   providers: [LoginService, provideNgxMask()],
   bootstrap: [AppComponent],

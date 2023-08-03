@@ -27,6 +27,13 @@
                 Cadastrar               
             </a>
 
+            <a mat-list-item  (click)="showView()" routerLink="/persons">
+                <i class="material-icons" >
+                    people 
+                </i> 
+                Lista Usários              
+            </a>
+
             <a mat-list-item  (click)="showView()" routerLink="/login" (click)="logOut()">
                 <i class="material-icons" color="red" >
                     logout

@@ -1,6 +1,29 @@
-<div class="mat-elevation-z8">
 
 <div class="table-responsive" >
+
+      <div class="mat-elevation-z4 filter" >
+
+        <form class="form-horizontal">
+              <div class="form-group">
+                <mat-form-field class="twoElement" >
+
+                <input class="InputFilter" matInput placeholder="digite cpf ou nome"
+                    [(ngModel)]="filter" name="filter" id="filter" required>   
+
+                </mat-form-field>
+            </div>
+        </form>
+
+      <button class="button"  mat-raised-button (click)="getPersonWithFilter()" color="primary">
+      Pesquizar
+      </button>
+
+      <button class="button" mat-raised-button (click)="CleanFilter()">
+      Limpar pesquiza
+      </button>
+    </div>
+
+  <div class="mat-elevation-z8">
 
   <mat-table class="full-width-table display nowrap"  matSort aria-label="Elements" >
            <!-- Id Column -->

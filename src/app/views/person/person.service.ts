@@ -60,6 +60,14 @@ export class PersonService {
     );
   }
 
+  getPersonWithFilter(filter: any ): Observable<Person[]> {
+    return this.http.get<HttpResponseFront>(this.baseUrl+'/pessoa/obterPorDocOuNome/'+filter).pipe(
+      map((obj) => obj.response),
+      catchError((e) => this.errorHandler(e))
+    );
+  }
+
+
   readById(id: number): Observable<Person> {
     const url = `${this.baseUrl}/pessoa/${id}`;
     return this.http.get<Person>(url).pipe(

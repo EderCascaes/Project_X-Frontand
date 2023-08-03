@@ -16,9 +16,9 @@ import { FormControl } from '@angular/forms';
 
 export class PersonCreateComponent {
  
-  selectedState = 'RS';
-  selectedRoles : number
   
+  selectedState = 'RS';
+    
   roles =[
     {value: 0 , viewValue: 'Administrador'},
     {value: 1 , viewValue: 'Funcionario'},
@@ -58,11 +58,9 @@ export class PersonCreateComponent {
 createPerson(id: any): void {  
         
   console.log('Id recebido'+ id) 
-          this.person.idEndereco = id;
-          console.log("Pessoa send fora  : "+this.person)
-
+          this.person.idEndereco = id;          
           this.personService.createPerson(this.person).subscribe(() => {
-            console.log("Pessoa send : "+this.person)
+           // console.log("Pessoa send : "+this.person)
             this.personService.showMessage('Usuario registrado !')
             this.router.navigate(['/persons'])
           })
@@ -96,6 +94,7 @@ getAddress(cep : any): void{
       }   
   })
 }
+
 
   cancel(): void {
     this.router.navigate(['/persons'])

@@ -2,3 +2,19 @@
 	width: 80%;
 	margin: 20px auto;
 }
+
+
+.filter{
+	display: inline-flex;
+   }
+
+   button{
+    padding: 5px;	
+    margin: 15px;
+   }
+
+   .InputFilter{
+	border-radius: 5px;
+    padding: 3px;
+    margin: 5px;
+   }

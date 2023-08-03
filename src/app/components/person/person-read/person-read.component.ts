@@ -22,6 +22,7 @@ export class PersonReadComponent  {
   responsive  = true;
   persons : object[];
   qtd : number
+  filter = '';
 
   displayedColumns = ['id', 'nome', 'email',  'telefone', 'cpf' , 'dataNascimento', 'action'] 
 
@@ -30,6 +31,29 @@ export class PersonReadComponent  {
   }
 
   ngOnInit(): void{
+    this.getPersons();
+  }
+
+  getPersonWithFilter(){
+    
+    this.personService.getPersonWithFilter(this.filter).subscribe(resp =>{      
+      this.persons = resp
+      console.log(resp)
+      this.dataSource = new PersonReadDataSource(resp); 
+      this.qtd = this.dataSource.data.length;
+      this.AfterViewInit(this.dataSource);   
+    })
+  
+  }
+
+  CleanFilter(){
+    (<HTMLInputElement>document.getElementById('filter')).value = '';   
+   // window.location.reload();
+    this.getPersons();
+  }
+
+
+  getPersons(){
     this.personService.read().subscribe(resp => {      
       this.persons = resp
       console.log(resp)
@@ -37,8 +61,8 @@ export class PersonReadComponent  {
       this.qtd = this.dataSource.data.length;
       this.AfterViewInit(this.dataSource);     
     })
-  }
 
+  }
   AfterViewInit(dataSource: PersonReadDataSource): void {
     dataSource.sort = this.sort;
     dataSource.paginator = this.paginator;
