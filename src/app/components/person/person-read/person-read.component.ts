@@ -6,8 +6,8 @@ import { PersonReadDataSource } from './person-read-datasource';
 import { Person } from 'src/app/views/person/person.model';
 import { PersonService } from 'src/app/views/person/person.service';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material/dialog';
 import { ModalPersonComponent } from '../modal-person/modal-person.component';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-person-read',
@@ -27,10 +27,15 @@ export class PersonReadComponent  {
   filter = '';
 
 
+  // displayedColumns = ['id', 'nome', 'email',  'telefone', 'cpf' , 'dataNascimento', 'action'] 
+ displayedColumns = [ 'nome', 'email',  'telefone', 'cpf' ,  'action'] 
 
-  displayedColumns = ['id', 'nome', 'email',  'telefone', 'cpf' , 'dataNascimento', 'action'] 
-
-  constructor(private router: Router, private personService : PersonService, public dialog: MatDialog) {
+  constructor(
+    private router: Router,
+     private personService : PersonService,
+      public dialog: MatDialog,
+     // private modalPerson : ModalPersonComponent
+      ) {
     
   }
 
@@ -45,6 +50,7 @@ export class PersonReadComponent  {
       console.log(resp)
       this.dataSource = new PersonReadDataSource(resp); 
       this.qtd = this.dataSource.data.length;
+      (<HTMLInputElement>document.getElementById('filter')).value = ''; 
       this.AfterViewInit(this.dataSource);   
     })
   
@@ -72,6 +78,13 @@ export class PersonReadComponent  {
     dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
   }
+
+  deletePersons(id : number){
+    this.personService.delete(id).subscribe(() => {      
+      this.getPersons();
+    })
+  }
+
 
   openDialog(id : any): void {
     const dialogRef = this.dialog.open(ModalPersonComponent, { })

@@ -1,24 +1,24 @@
 
 <div class="table-responsive" >
 
-      <div class="mat-elevation-z4 filter" >
+      <div class="mat-elevation-z4 perchfilter" >
 
         <form class="form-horizontal">
               <div class="form-group">
-                <mat-form-field class="twoElement" >
+                <mat-form-field >
 
-                <input class="InputFilter" matInput placeholder="digite cpf ou nome"
+                <input matInput placeholder="digite um cpf ou um nome para pesquiza."
                     [(ngModel)]="filter" name="filter" id="filter" required>   
 
                 </mat-form-field>
             </div>
         </form>
 
-      <button class="button"  mat-raised-button (click)="getPersonWithFilter()" color="primary">
+      <button class="searchButtons"  mat-raised-button (click)="getPersonWithFilter()" color="primary">
       Pesquizar
       </button>
 
-      <button class="button" mat-raised-button (click)="CleanFilter()">
+      <button class="searchButtons" mat-raised-button (click)="CleanFilter()">
       Limpar pesquiza
       </button>
     </div>
@@ -77,6 +77,11 @@
                     delete
                 </i>
               </button>
+              <a routerLink="/person/editar/{{ row.id }}" class="folder">
+                <i class="material-icons" >
+                   folder
+                </i>
+            </a>
           </mat-cell>
       </ng-container>
   
@@ -84,7 +89,7 @@
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 
-  </div>
+  
 
         <mat-paginator #paginator
             [length]="qtd"
@@ -94,6 +99,7 @@
             aria-label="Select page">
         </mat-paginator>
 
+      </div>
   </div>
    
 

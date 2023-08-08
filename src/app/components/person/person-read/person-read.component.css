@@ -1,27 +1,48 @@
-.data-table{
-	width: 80%;
-	margin: 20px auto;
-}
+
+.tablelist {
+   height: 600px;
+   max-width: 100%;
+   overflow: auto;
+ }
 
 
-.filter{
-	display: inline-flex;
+
+
+
+   .perchfilter{   
+      display: flex;       
+       padding: 10px !important;        
+       margin-bottom: 10px;
    }
 
-   button{
-    padding: 5px;	
-    margin: 15px;
-   }
+   .form-horizontal{
+      margin-top: 3px;
+      width: 100%;  
+     }
 
-   .InputFilter{
-	border-radius: 5px;
-    padding: 3px;
-    margin: 5px;
-   }
+     .form-group{
+      width: 100%;
+     }
+     mat-form-field {
+      width: 100%;
+     }
+
+      .InputFilter{
+     display: flex ;
+     }
+   
+
+   .searchButtons{
+      padding: 25px; 
+      margin: 10px;
+      margin-top: 3px;
+      width: 15%;  
+     }
 
 
-
-   .edit {
+     /* actions buttons */
+    
+     .edit {
       color: green;
    }
  
@@ -36,3 +57,45 @@
       margin-left: 5px;
       width: 100%;
    }
+
+
+   /* mobile phone */
+ 
+@media only screen and (max-width: 736px) and (orientation:portrait) {
+
+   .tablelist {
+      height: 400px;
+      max-width: 100%;
+      overflow: auto;
+    }
+   
+
+   .perchfilter{   
+      display: block;       
+       padding: 10px !important;        
+       margin-bottom: 5px;
+   }
+
+   .form-horizontal{
+      width: 100%;
+   }
+
+
+.searchButtons{
+   padding: 5px; 
+   margin: 3px;
+   width: 100%;  
+  }
+
+   mat-header-row, mat-row {
+     width: 100%; 
+   }
+
+   mat-row{
+       font-size:8px;
+   }
+
+  mat-cell{
+   font-size:8px;  
+  }
+}
