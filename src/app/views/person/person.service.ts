@@ -1,4 +1,4 @@
-import { Response } from '../../Shared/Response';
+
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material/snack-bar";
 import { HttpClient } from "@angular/common/http";
@@ -77,23 +77,26 @@ export class PersonService {
   }
 
   update(person: Person): Observable<Person> {
-    const url = `${this.baseUrl}/pessoa/${person.id}`;
+    const url = `${this.baseUrl}/pessoa/editar/${person.id}`;
     return this.http.put<Person>(url, person).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
-  delete(id: number): Observable<Person> {
-    const url = `${this.baseUrl}/pessoa/${id}`;
-    return this.http.delete<Person>(url).pipe(
-      map((obj) => obj),
+
+  delete(id: any): Observable<any> {
+    
+    console.log('entrou no delete service url 2 => ' + `${this.baseUrl}/pessoa/excluir/${id}` )
+    return this.http.delete<HttpResponseFront>(`${this.baseUrl}/pessoa/excluir/${id}`).pipe(
+      map((obj) => obj.response),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   errorHandler(e: any): Observable<any> {
     this.showMessage("Ocorreu um erro!" + e, true);
+    console.log('erro =  ' + e )
     return EMPTY;
   }
 }

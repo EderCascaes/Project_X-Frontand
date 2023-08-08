@@ -18,3 +18,21 @@
     padding: 3px;
     margin: 5px;
    }
+
+
+
+   .edit {
+      color: green;
+   }
+ 
+   .delete {
+      color: red;
+   }
+
+
+   .edit , .delete, .folder{
+      padding: 10px;  
+      margin-top: 25px;
+      margin-left: 5px;
+      width: 100%;
+   }

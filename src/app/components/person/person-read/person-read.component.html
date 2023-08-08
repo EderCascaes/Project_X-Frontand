@@ -72,11 +72,11 @@
                     edit
                 </i>
             </a>
-            <a routerLink="/preson/excluir/{{ row.id }}" class="delete">
+            <button mat-raised-button (click)="openDialog(row.id)" class="delete">
                 <i class="material-icons" >
                     delete
                 </i>
-            </a>
+              </button>
           </mat-cell>
       </ng-container>
   
@@ -96,5 +96,6 @@
 
   </div>
    
-  
+
+
 

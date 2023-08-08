@@ -33,6 +33,8 @@ import { PersonReadComponent } from './components/person/person-read/person-read
 import { MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
 
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+
 import {  NgxMaskDirective ,  NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
 
 
@@ -50,6 +52,7 @@ import {  NgxMaskDirective ,  NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
     PersonCreateComponent,
     AutheLoginComponent   ,
     PersonReadComponent,
+    
     
     
   ],
@@ -76,6 +79,7 @@ import {  NgxMaskDirective ,  NgxMaskPipe, provideNgxMask  } from 'ngx-mask'
     NgxMaskDirective, 
     NgxMaskPipe ,
     MatSelectModule,
+    MatDialogModule
   
   ],
   providers: [LoginService, provideNgxMask()],

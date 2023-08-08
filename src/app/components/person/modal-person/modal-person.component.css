@@ -1,0 +1,22 @@
+.modal{
+    min-width: 400px !important;
+    min-height: 200px !important;
+
+    background-color: rgb(218, 233, 233);
+    border-radius: 5%;
+    border-color: black;
+}
+
+modal.h1 {
+    text-justify: center;
+    margin-top: 5px;
+    text-decoration: solid;
+}
+
+
+ng-container{
+    min-width: 400px !important;
+    min-height: 200px !important;
+    border-radius: 5%;
+    border-color: black;
+}

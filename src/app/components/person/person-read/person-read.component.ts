@@ -6,6 +6,8 @@ import { PersonReadDataSource } from './person-read-datasource';
 import { Person } from 'src/app/views/person/person.model';
 import { PersonService } from 'src/app/views/person/person.service';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalPersonComponent } from '../modal-person/modal-person.component';
 
 @Component({
   selector: 'app-person-read',
@@ -24,9 +26,11 @@ export class PersonReadComponent  {
   qtd : number
   filter = '';
 
+
+
   displayedColumns = ['id', 'nome', 'email',  'telefone', 'cpf' , 'dataNascimento', 'action'] 
 
-  constructor(private router: Router, private personService : PersonService) {
+  constructor(private router: Router, private personService : PersonService, public dialog: MatDialog) {
     
   }
 
@@ -67,5 +71,15 @@ export class PersonReadComponent  {
     dataSource.sort = this.sort;
     dataSource.paginator = this.paginator;
     this.table.dataSource = this.dataSource;
+  }
+
+  openDialog(id : any): void {
+    const dialogRef = this.dialog.open(ModalPersonComponent, { })
+    localStorage.setItem('id_deletar', id);  
+    ;
+
+    dialogRef.afterClosed().subscribe(result => {
+    localStorage.removeItem('id_deletar');      
+    });
   }
 }

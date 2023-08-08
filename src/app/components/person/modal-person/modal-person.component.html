@@ -1,0 +1,17 @@
+
+
+
+<ng-container class="modal" >
+  <div  >
+    <h1 mat-dialog-title> Atenção !! </h1>
+    <p>Você deseja realmente excluir essa pessoa ?</p>
+    <ng-content>
+      
+
+    </ng-content>
+  </div>
+  <div mat-dialog-actions >
+    <button mat-button (click)="onNoClick()">Não</button>
+    <button mat-button  cdkFocusInitial (click)="delete()" >Ok</button>
+  </div>
+</ng-container>
