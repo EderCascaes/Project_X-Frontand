@@ -6,7 +6,7 @@ import { Person } from "./person.model";
 import { Observable, EMPTY } from "rxjs";
 import { map, catchError } from "rxjs/operators";
 import { HttpResponseFront } from  '../../Shared/HttpResponseFront'
-import { Endereco } from './person-endereco.model';
+import { Address } from './person-endereco.model';
 
 @Injectable({
   providedIn: "root",
@@ -33,7 +33,7 @@ export class PersonService {
     );
   }
 
-  createAddress(endereco: Endereco): Observable<number> {
+  createAddress(endereco: Address): Observable<number> {
     
       if(endereco.complemento == null){
         endereco.complemento="";
@@ -53,7 +53,7 @@ export class PersonService {
     );
   }
 
-  getAddress(cep: string): Observable<Endereco> {
+  getAddress(cep: string): Observable<Address> {
     return this.http.get<HttpResponseFront>(this.baseUrl+'/Endereco/ObterEnderecoPorCep/'+cep).pipe(
       map((obj) => obj.response),
       catchError((e) => this.errorHandler(e))

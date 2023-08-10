@@ -1,10 +1,11 @@
 import {  Person } from '../../person/person.model';
-import { Endereco } from '../person-endereco.model';
+
 
 import { PersonService } from '../../person/person.service';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+import { Address } from '../person-endereco.model';
+
 
 
 @Component({
@@ -14,8 +15,12 @@ import { FormControl } from '@angular/forms';
 })
 
 
-export class PersonCreateComponent {
- 
+export class PersonCreateComponent implements AfterViewInit {
+  @ViewChild('saveButton') 
+   private testElement: ElementRef
+  
+   globalInstance: any; 
+
   
   selectedState = 'RS';
     
@@ -37,7 +42,7 @@ export class PersonCreateComponent {
     idEndereco : 0
   };
 
-  endereco : Endereco ={
+  endereco : Address ={
     id : 0,
     cidade  : '',
     estado    : '',
@@ -48,17 +53,52 @@ export class PersonCreateComponent {
     cep : ''       
   }
 
-  constructor(private personService: PersonService,private router: Router) { }
+  constructor(private personService: PersonService,private router: Router,private renderer: Renderer2) { }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {     
    
+}
+
+
+
+ngAfterViewInit() {
+ 
+}
+
+enableButton(){
+  var address = this.endereco;
+  var person = this.person;
+
+    if(
+      address.cidade != '' 
+      && address.numero !=  "0" 
+      && address.logradouro != ''
+      && address.bairro != ''
+      && address.cep != ''
+      && person.nome != ''
+      && person.email != ''
+      && person.telefone != ''
+      && person.cpf != ''
+      && person.dataNascimento != ''
+      && person.funcoes != null
+      )
+      { 
+        console.log("testando save dentro if false");
+        (<HTMLInputElement>document.getElementById("saveButton")).disabled = false;
+      }else{
+        console.log("testando save dentro if true");
+        (<HTMLInputElement>document.getElementById("saveButton")).disabled = true;
+      }
+
 }
 
 
 createPerson(id: any): void {  
         
-  console.log('Id recebido'+ id) 
-          this.person.idEndereco = id;          
+  console.log('data aniver antes'+ this.person.dataNascimento) 
+          this.person.idEndereco = id;   
+          this.person.dataNascimento =  this.dateFormater(this.person.dataNascimento);
+  console.log('data aniver depois'+ this.person.dataNascimento)              
           this.personService.createPerson(this.person).subscribe(() => {
            // console.log("Pessoa send : "+this.person)
             this.personService.showMessage('Usuario registrado !')
@@ -67,7 +107,6 @@ createPerson(id: any): void {
 }
 
 createAddress(): void {  
-
           this.personService.createAddress(this.endereco).subscribe( response => {    
             console.log('Id fora do if'+ response)  
             if(response > 0){
@@ -95,6 +134,7 @@ getAddress(cep : any): void{
   })
 }
 
+ 
 
   cancel(): void {
     this.router.navigate(['/persons'])
@@ -104,6 +144,14 @@ getAddress(cep : any): void{
     this.router.navigate(['/persons'])
   }
 
+  dateFormater(date: string){
+
+    const year = date.substring(4, 8)+'/';
+    const month = date.substring(2, 4)+'/';
+    const  day = date.substring(0 , 2)+' 23:00:00-00';
+
+    return year+month+day;
+  }
 
 
 }

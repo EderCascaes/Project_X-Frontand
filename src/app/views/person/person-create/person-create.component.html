@@ -5,31 +5,31 @@
        <div class="form-group">
           
                 <mat-form-field class="twoElement" >            
-                    <input class="formName" matInput placeholder="Nome"
-                    [(ngModel)]="person.nome" name="name" required>     
+                    <input class="formName" matInput placeholder="Nome"  
+                    [(ngModel)]="person.nome" name="name" required  (focus)="enableButton()">     
                 </mat-form-field>
          
                 <mat-form-field class="twoElement">
-                    <input class="formEmail" matInput placeholder="Email"
+                    <input class="formEmail" matInput placeholder="Email"  (click)="enableButton()"
                     [(ngModel)]="person.email" name="email" required
                     >
                 </mat-form-field>
             </div>
         <div class="form-group">
                 <mat-form-field class="threeElement" >
-                    <input matInput placeholder="Telefone" 
+                    <input matInput placeholder="Telefone"   (click)="enableButton()"
                     [(ngModel)]="person.telefone" id="telefone" name="telefone"required
                     mask="(00)00000-0000">
                 </mat-form-field>
            
                 <mat-form-field class="threeElement">
-                    <input matInput placeholder="cpf" 
+                    <input matInput placeholder="cpf"   (click)="enableButton()"
                     [(ngModel)]="person.cpf" id="cpf" name="cpf" required
                     mask="000.000.000-00">
                 </mat-form-field>
           
                 <mat-form-field class="threeElement">
-                    <input matInput placeholder="Data de nascimento"
+                    <input matInput placeholder="Data de nascimento"  (click)="enableButton()"
                     [(ngModel)]="person.dataNascimento" id="data" name="dataNascimento" required
                     mask="00/00/0000">
                 </mat-form-field>
@@ -37,12 +37,12 @@
         <div class="form-group">
                 <!--Endereco-->
                 <mat-form-field class="fourElement" >
-                    <input matInput placeholder="logradouro"
+                    <input matInput placeholder="logradouro"  (click)="enableButton()"
                         [(ngModel)]="endereco.logradouro" name="logradouro" required>           
                 </mat-form-field>
           
                 <mat-form-field class="fourElement">
-                    <input matInput placeholder="numero"
+                    <input matInput placeholder="numero"  (click)="enableButton()"
                         [(ngModel)]="endereco.numero" name="numero"required
                         mask="000000">
 
@@ -54,7 +54,7 @@
                 </mat-form-field>
 
                 <mat-form-field class="fourElement">
-                    <input matInput placeholder="bairro"
+                    <input matInput placeholder="bairro"  (click)="enableButton()"
                         [(ngModel)]="endereco.bairro" name="bairro" required>
                 </mat-form-field>
 
@@ -62,12 +62,12 @@
         <div class="form-group">               
          
                 <mat-form-field class="fourElement">
-                    <input matInput placeholder="cidade"
+                    <input matInput placeholder="cidade"  (click)="enableButton()"
                         [(ngModel)]="endereco.cidade" name="cidade" required>
                 </mat-form-field> 
 
                 <mat-form-field class="fourElement">
-                    <input matInput placeholder="cep"  (focusout)="getAddress(endereco.cep)"
+                    <input matInput placeholder="cep"  (focusout)="getAddress(endereco.cep)"  (click)="enableButton()"
                     [(ngModel)]="endereco.cep" id="cep" name="CEP"required
                     mask="00000-000">
                 </mat-form-field>       
@@ -107,8 +107,8 @@
                 </mat-form-field> 
 
                 <mat-form-field class="fourElement">
-                    <mat-select   [(value)]="person.funcoes"    id="funcao"  name="funcao"  placeholder="Funcão"  multiple> 
-                        <mat-option *ngFor="let role of roles" [value]="role.value">
+                    <mat-select   [(value)]="person.funcoes"    id="funcao"  name="funcao"   placeholder="Funcão"  multiple> 
+                        <mat-option *ngFor="let role of roles" [value]="role.value" class="roles" (click)="enableButton()"  >
                                 {{ role.viewValue}}
                         </mat-option>
                     </mat-select>
@@ -116,7 +116,7 @@
         </div> 
 </form>
 
-    <button mat-raised-button (click)="createAddress()" color="primary">
+    <button mat-raised-button (click)="createAddress()" class="saveButton" id="saveButton"  color="primary" disabled="true">
         Salvar
     </button>
     
@@ -130,3 +130,5 @@
 <button class="listPerson" mat-raised-button (click)="navigateToListPerson()">
     Lista de usuarios 
 </button>
+
+

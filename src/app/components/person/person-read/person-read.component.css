@@ -1,10 +1,80 @@
 
-.tablelist {
-   height: 600px;
-   max-width: 100%;
-   overflow: auto;
- }
 
+mat-header-cell, mat-header-row{
+    background:#f2f4f7;
+    min-height:15px;
+    font-family:Verdana,sans-serif;
+    font-weight:bold;
+    font-size:15px;
+    color: #1a084c;
+    margin-bottom:5px;
+     top: 0;
+    position: sticky;
+    z-index: 1;
+}
+
+mat-row{
+    min-height:20px;
+    font-family:Verdana,sans-serif;
+    font-size:15px;
+    color: #1a084c;
+    }
+mat-cell{
+    height:30px;
+    font-family:Verdana,sans-serif;
+    font-size:11px; 
+    color: #1a084c;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 180px;
+  margin:auto;
+}
+
+.mat-table {
+    font-size:15px;
+    font-family: Verdana,Sans-Serif;
+    color: #1a084c;
+    overflow: auto;
+    max-height: 180px;
+}
+
+mat-header-cell, mat-header-row{
+    background:#f2f4f7;
+    min-height:15px;
+    font-family:Verdana,sans-serif;
+    font-weight:bold;
+    font-size:20px;
+    color: #1a084c;
+    margin-bottom:5px;
+     top: 1px;
+    position: sticky;
+    z-index: 1;
+}
+
+mat-row{
+    min-height:16px;
+    font-family:Verdana,sans-serif;
+    font-size:20px;
+    color: #1a084c;
+    
+    }
+mat-cell{
+    height:20px;
+    font-family:Verdana,sans-serif;
+    font-size:15px; 
+    color: #1a084c;
+    padding: 30px;
+}
+
+.table-responsive {
+  display: flex;
+  flex-direction: column;
+  max-height: 180px;
+  margin:auto;
+}
 
 
 
@@ -63,6 +133,10 @@
  
 @media only screen and (max-width: 736px) and (orientation:portrait) {
 
+   .table-responsive {
+      overflow-x: scroll;
+    }
+
    .tablelist {
       height: 400px;
       max-width: 100%;
@@ -87,15 +161,5 @@
    width: 100%;  
   }
 
-   mat-header-row, mat-row {
-     width: 100%; 
-   }
 
-   mat-row{
-       font-size:8px;
-   }
-
-  mat-cell{
-   font-size:8px;  
-  }
 }
