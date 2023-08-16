@@ -1,9 +1,3 @@
-mat-card-title {
-  display:flex;
-  align-items: center;
-  justify-content: center;
-  font-family: Cambria, Arial;
-}
 
 
 .form-group{
@@ -45,6 +39,8 @@ mat-card-title {
 
 
  @media only screen and (max-width: 600px) {
+
+
 
   .twoElement{
     width: 100%;

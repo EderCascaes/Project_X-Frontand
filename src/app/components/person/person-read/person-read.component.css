@@ -1,165 +1,142 @@
 
 
-mat-header-cell, mat-header-row{
-    background:#f2f4f7;
-    min-height:15px;
-    font-family:Verdana,sans-serif;
-    font-weight:bold;
-    font-size:15px;
-    color: #1a084c;
-    margin-bottom:5px;
-     top: 0;
-    position: sticky;
-    z-index: 1;
+mat-row{
+   min-height:20px;
+   font-family:Verdana,sans-serif;
+   font-size:15px;
+   color: #1a084c;
+   }
+mat-cell{
+   height:30px;
+   font-family:Verdana,sans-serif;
+   font-size:11px; 
+   color: #1a084c;
+}
+
+
+
+mat-header-cell{
+   min-height:15px;
+   font-family:Verdana,sans-serif;
+   font-weight:bold;
+   font-size:20px;
+   color: #1a084c;
+   margin-bottom:5px;
+    top: 1px;
+   position: sticky;
+   z-index: 1;
 }
 
 mat-row{
-    min-height:20px;
-    font-family:Verdana,sans-serif;
-    font-size:15px;
-    color: #1a084c;
-    }
+   min-height:16px;
+   font-family:Verdana,sans-serif;
+   font-size:20px;
+   color: #1a084c;
+   
+   }
 mat-cell{
-    height:30px;
-    font-family:Verdana,sans-serif;
-    font-size:11px; 
-    color: #1a084c;
+   height:20px;
+   font-family:Verdana,sans-serif;
+   font-size:15px; 
+   color: #1a084c;
+   padding: 30px;
 }
 
-.example-container {
-  display: flex;
-  flex-direction: column;
-  max-height: 180px;
-  margin:auto;
+
+mat-header-row{
+   display: none;
+}
+
+
+.table-responsive {
+ display: flex;
+ flex-direction: column;
+ max-height: 180px;
+ margin:auto;
 }
 
 .mat-table {
-    font-size:15px;
-    font-family: Verdana,Sans-Serif;
-    color: #1a084c;
-    overflow: auto;
-    max-height: 180px;
+   font-size:15px;
+   font-family: Verdana,Sans-Serif;
+   color: #1a084c;
+   overflow: auto;
+   max-height: 180px;
 }
 
-mat-header-cell, mat-header-row{
-    background:#f2f4f7;
-    min-height:15px;
-    font-family:Verdana,sans-serif;
-    font-weight:bold;
-    font-size:20px;
-    color: #1a084c;
-    margin-bottom:5px;
-     top: 1px;
-    position: sticky;
-    z-index: 1;
-}
 
-mat-row{
-    min-height:16px;
-    font-family:Verdana,sans-serif;
-    font-size:20px;
-    color: #1a084c;
-    
+  .perchfilter{   
+     display: flex;       
+      padding: 10px !important;        
+      margin-bottom: 10px;
+  }
+
+  .form-horizontal{
+     margin-top: 3px;
+     width: 100%;  
     }
-mat-cell{
-    height:20px;
-    font-family:Verdana,sans-serif;
-    font-size:15px; 
-    color: #1a084c;
-    padding: 30px;
-}
 
-.table-responsive {
-  display: flex;
-  flex-direction: column;
-  max-height: 180px;
-  margin:auto;
-}
+    .form-group{
+     width: 100%;
+    }
+    mat-form-field {
+     width: 100%;
+    }
+
+     .InputFilter{
+    display: flex ;
+    }
+  
+
+  .searchButtons{
+     padding: 25px; 
+     margin: 10px;
+     margin-top: 3px;
+     width: 15%;  
+    }
 
 
-
-
-   .perchfilter{   
-      display: flex;       
-       padding: 10px !important;        
-       margin-bottom: 10px;
-   }
-
-   .form-horizontal{
-      margin-top: 3px;
-      width: 100%;  
-     }
-
-     .form-group{
-      width: 100%;
-     }
-     mat-form-field {
-      width: 100%;
-     }
-
-      .InputFilter{
-     display: flex ;
-     }
+    /* actions buttons */
    
+    .edit {
+     color: green;
+  }
 
-   .searchButtons{
-      padding: 25px; 
-      margin: 10px;
-      margin-top: 3px;
-      width: 15%;  
-     }
-
-
-     /* actions buttons */
-    
-     .edit {
-      color: green;
-   }
- 
-   .delete {
-      color: red;
-   }
+  .delete {
+     color: red;
+  }
 
 
-   .edit , .delete, .folder{
-      padding: 10px;  
-      margin-top: 25px;
-      margin-left: 5px;
-      width: 100%;
-   }
+  .edit , .delete, .folder{
+     padding: 10px;  
+     margin-top: 25px;
+     margin-left: 5px;
+     width: 100%;
+  }
 
 
-   /* mobile phone */
- 
+  /* mobile phone */
+
 @media only screen and (max-width: 736px) and (orientation:portrait) {
 
-   .table-responsive {
-      overflow-x: scroll;
-    }
+  
+  
 
-   .tablelist {
-      height: 400px;
-      max-width: 100%;
-      overflow: auto;
-    }
-   
+  .perchfilter{   
+     display: block;       
+      padding: 10px !important;        
+      margin-bottom: 5px;
+  }
 
-   .perchfilter{   
-      display: block;       
-       padding: 10px !important;        
-       margin-bottom: 5px;
-   }
-
-   .form-horizontal{
-      width: 100%;
-   }
+  .form-horizontal{
+     width: 100%;
+  }
 
 
 .searchButtons{
-   padding: 5px; 
-   margin: 3px;
-   width: 100%;  
-  }
+  padding: 5px; 
+  margin: 3px;
+  width: 100%;  
+ }
 
 
 }

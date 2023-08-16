@@ -1,4 +1,4 @@
-import {  Person } from '../../person/person.model';
+import { Person } from './../person.model';
 
 
 import { PersonService } from '../../person/person.service';
@@ -38,9 +38,10 @@ export class PersonCreateComponent implements AfterViewInit {
     telefone: '',
     cpf : '',
     dataNascimento: '',
-    funcoes: [] ,
+    funcoes: []  ,
     idEndereco : 0
   };
+  
 
   endereco : Address ={
     id : 0,
@@ -71,7 +72,7 @@ enableButton(){
 
     if(
       address.cidade != '' 
-      && address.numero !=  "0" 
+      && (address.numero !=  '' && address.numero != '0')  
       && address.logradouro != ''
       && address.bairro != ''
       && address.cep != ''
@@ -80,7 +81,7 @@ enableButton(){
       && person.telefone != ''
       && person.cpf != ''
       && person.dataNascimento != ''
-      && person.funcoes != null
+      && (person.funcoes?.length !== 0)  
       )
       { 
         console.log("testando save dentro if false");
