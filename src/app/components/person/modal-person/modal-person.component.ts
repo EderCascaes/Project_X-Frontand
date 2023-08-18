@@ -1,8 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {Component, OnInit} from '@angular/core';
+import { MatDialogRef} from '@angular/material/dialog';
 
 import { PersonService } from 'src/app/views/person/person.service';
-import { PersonReadComponent } from '../person-read/person-read.component';
+import {MatButtonModule} from '@angular/material/button';
 import { Router } from '@angular/router';
 
 
@@ -41,11 +41,6 @@ export class ModalPersonComponent implements OnInit {
       
     })
   }
-
-
-
-  
-
 
 
   ngOnInit(): void {   

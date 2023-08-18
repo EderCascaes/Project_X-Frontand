@@ -8,6 +8,7 @@ import { Address } from '../person-endereco.model';
 
 
 
+
 @Component({
   selector: 'app-person-create',
   templateUrl: './person-create.component.html',
@@ -17,7 +18,7 @@ import { Address } from '../person-endereco.model';
 
 export class PersonCreateComponent implements AfterViewInit {
   @ViewChild('saveButton') 
-   private testElement: ElementRef
+   
   
    globalInstance: any; 
 

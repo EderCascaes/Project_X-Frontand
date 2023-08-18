@@ -2,21 +2,44 @@
     min-width: 400px !important;
     min-height: 200px !important;
 
-    background-color: rgb(218, 233, 233);
     border-radius: 5%;
-    border-color: black;
+    border: 2px solid rgb(243, 199, 199);
 }
 
-modal.h1 {
-    text-justify: center;
-    margin-top: 5px;
-    text-decoration: solid;
+h1, p {
+    text-align: center;
+    color: red;
+    margin: 5px;
+    font-family:Arial, Helvetica, sans-serif;
+  
 }
 
+.mat-elevation-z4{    
+    margin: 5px;
+    display: block;
+}
 
 ng-container{
-    min-width: 400px !important;
-    min-height: 200px !important;
-    border-radius: 5%;
-    border-color: black;
+    display: 100%;
+  
 }
+
+
+.buttondel{
+    
+    display: block;     
+    margin-top: 10px;
+    width: 100%; 
+    color: brown;  
+    padding: 10px;   
+      
+  }
+ .buttonNo{
+    color: blue;
+    display: block;     
+    margin-top: 20px;
+    width: 100%;      
+    padding: 10px;  
+  }
+
+

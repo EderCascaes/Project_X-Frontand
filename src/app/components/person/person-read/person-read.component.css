@@ -49,9 +49,8 @@ mat-header-row{
 
 
 .table-responsive {
- display: flex;
- flex-direction: column;
- max-height: 180px;
+ display: auto;
+ max-height: 300px;
  margin:auto;
 }
 
@@ -118,7 +117,11 @@ mat-header-row{
 
 @media only screen and (max-width: 736px) and (orientation:portrait) {
 
-  
+   .table-responsive {
+      display: auto;
+      max-height: 500px;
+      margin:auto;
+     }
   
 
   .perchfilter{   
